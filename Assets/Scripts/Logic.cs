@@ -1,32 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CellsDragNDrop;
 
-public class Logic : MonoBehaviour
+namespace CellsDragNDrop
 {
-    public GameObject store;
-    // Start is called before the first frame update
-    void Start()
+    public class Logic : MonoBehaviour
     {
-        
-    }
+        public GameObject store;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void ToggleStore(bool show)
-    {
-        store.SetActive(show);
-        if (show)
+        public void ToggleStore(bool show)
         {
-            Debug.Log("open store");
-        }
-        else
-        {
-            Debug.Log("close store");
+            store.SetActive(show);
+            if (show)
+            {
+                Debug.Log("open store");
+            }
+            else
+            {
+                Debug.Log("close store");
+            }
         }
     }
 }

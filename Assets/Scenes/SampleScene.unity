@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 21790801}
   - component: {fileID: 21790800}
+  - component: {fileID: 21790802}
   m_Layer: 0
   m_Name: Logic
   m_TagString: Untagged
@@ -165,6 +166,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &21790802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21790799}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a787766be1bb7f4292ae2020ac4f543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cells: []
+  cellsEmpty: []
 --- !u!1 &36409499
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (2)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -559,7 +574,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (8)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -684,7 +699,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (1)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -848,7 +863,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (7)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -1166,7 +1181,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (15)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -1291,7 +1306,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (14)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -1489,7 +1504,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (11)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -1614,7 +1629,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (10)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -1868,7 +1883,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (3)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -2088,9 +2103,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1127191492}
   - component: {fileID: 1127191494}
+  - component: {fileID: 1127191495}
   - component: {fileID: 1127191493}
   m_Layer: 5
-  m_Name: score
+  m_Name: points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2146,7 +2162,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0441\u0447\u0435\u0442: 0"
+  m_Text: 0
 --- !u!222 &1127191494
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2155,6 +2171,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127191491}
   m_CullTransparentMesh: 0
+--- !u!114 &1127191495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127191491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ef56b6c8641914c9b0aacc4051dda1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1239110186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2404,7 +2432,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (5)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -2529,7 +2557,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (12)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -2747,7 +2775,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (6)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -2945,7 +2973,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (9)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -3243,7 +3271,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (4)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -3548,7 +3576,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell (13)
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}
@@ -3626,7 +3654,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041C\u0430\u0433\u0430\u0437\u0438\u043D"
+  m_Text: bttn
 --- !u!222 &2091720634
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3875,7 +3903,7 @@ PrefabInstance:
     - target: {fileID: 5847204444162767658, guid: c7803239145924643ab79604027d33f0,
         type: 3}
       propertyPath: m_Name
-      value: cell
+      value: Cell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7803239145924643ab79604027d33f0, type: 3}

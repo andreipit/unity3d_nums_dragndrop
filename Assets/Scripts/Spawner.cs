@@ -2,39 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using CellsDragNDrop;
+using System.Collections;
 
 namespace CellsDragNDrop
 {
     public class Spawner : MonoBehaviour
     {
-        //config
-        public GameObject prefab;
-        public Transform[] spawnPoints;
-        public int maxAlive = 1;
+        public Cell[] cells;
+        public List<Cell> cellsEmpty = new List<Cell>();
+        float timer = 10.0f;
 
-        //state
-        public List<GameObject> alive;
-
-        //bookkeeping
-        float lastRandom;
+        void Start()
+        {
+            cells = GameObject.Find("cells").GetComponentsInChildren<Cell>();
+            cellsEmpty = cells.OfType<Cell>().ToList();
+            Spawn();
+        }
 
         void Update()
         {
-            alive = alive.Where(item => item != null).ToList();
-            if (alive.Count < maxAlive) Spawn();
+            timer -= Time.deltaTime;
+            if (timer <= 0.0f) { Spawn(); timer = 10.0f; }
         }
 
         void Spawn()
         {
-            alive.Add(Instantiate(prefab, spawnPoints[GetNewRandom()].position, Quaternion.identity, transform));
-        }
-
-        int GetNewRandom()
-        {
-            int random = Random.Range(0, spawnPoints.Length);
-            while (random == lastRandom) random = Random.Range(0, spawnPoints.Length);
-            lastRandom = random;
-            return random;
+            if (cellsEmpty.Count>0)
+            {
+                int rand = (int)Random.Range(0, cellsEmpty.Count);
+                cellsEmpty[rand].text.text = 1.ToString();
+                cellsEmpty.RemoveAt(rand);
+            }
         }
     }
 }
