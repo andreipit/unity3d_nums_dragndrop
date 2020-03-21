@@ -8,31 +8,46 @@ namespace CellsDragNDrop
 {
     public class Spawner : MonoBehaviour
     {
+        public static Spawner instance;
         public Cell[] cells;
-        public List<Cell> cellsEmpty = new List<Cell>();
-        float timer = 10.0f;
+        public static List<Cell> emptyCells = new List<Cell>();
+        //public  List<Cell> emptyCells2 = new List<Cell>();
+        const float period = 1f;
+        float timer = period;
+
 
         void Start()
         {
-            cells = GameObject.Find("cells").GetComponentsInChildren<Cell>();
-            cellsEmpty = cells.OfType<Cell>().ToList();
-            Spawn();
+            instance = this;
+            //cells = GetComponentsInChildren<Cell>();
+            emptyCells = cells.OfType<Cell>().ToList();
+            //Debug.LogError(cells.Length);
+            //Debug.LogError(emptyCells.Count);
+            Debug.Log("emptyCells len1="+ emptyCells.Count);
         }
 
         void Update()
         {
-            timer -= Time.deltaTime;
-            if (timer <= 0.0f) { Spawn(); timer = 10.0f; }
+            //timer -= Time.deltaTime;
+            //if (timer <= 0.0f) 
+            //{
+            //    if (emptyCells.Count > 0)
+            //    {
+            //        int newValue = (emptyCells.Count >= 9) ? 1 : (int)Random.Range(1, Number.maxValue + 1);
+            //        Spawn(newValue);
+            //    }
+            //    timer = period;
+            //}
+            Debug.Log("emptyCells len="+ emptyCells.Count);
+            //emptyCells2 = emptyCells;
         }
 
-        void Spawn()
+        public void Spawn(int newValue)
         {
-            if (cellsEmpty.Count>0)
-            {
-                int rand = (int)Random.Range(0, cellsEmpty.Count);
-                cellsEmpty[rand].text.text = 1.ToString();
-                cellsEmpty.RemoveAt(rand);
-            }
+            int randCell = (int)Random.Range(0, emptyCells.Count);
+            emptyCells[randCell].SetNumber(newValue);
+            emptyCells.RemoveAt(randCell);
         }
+
     }
 }

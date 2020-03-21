@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language>
+  <words>
+    <word id="01" eng="shop" ru="магазин" ></word>
+    <word id="02" eng="recycle" ru="корзина" ></word>
+    <word id="03" eng="points:" ru="счет:" ></word>
+    <word id="04" eng="Shop" ru="Магазин" ></word>
+    <word id="05" eng="Buy:" ru="Купить:" ></word>
+   </words>
+</language>

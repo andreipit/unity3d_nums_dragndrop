@@ -15,6 +15,11 @@ namespace CellsDragNDrop
             text = GetComponentInChildren<Text>();
         }
 
+        public void SetNumber(int value)
+        {
+            text.text = value.ToString();
+        }
+
     }
 }
 

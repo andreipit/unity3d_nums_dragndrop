@@ -10,31 +10,45 @@ namespace CellsDragNDrop
     {
         Vector3 pos;
         Number number;
+        Cell cell;
 
         void Start()
         {
             pos = transform.localPosition;
             number = GetComponent<Number>();
+            cell = transform.parent.GetComponent<Cell>();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (number.isMoving) // all calculations are only on moving number
+            if (collision.tag == "Number")
             {
-                Number staticNumber = collision.GetComponent<Number>();
-                if (staticNumber.value == number.value)
+                if (number.isMoving) // all calculations are only on moving number
                 {
-                    number.Delete();
-                    staticNumber.Increase(1);
-                    EndDrag();
-                    Points.instance.Increase();
+                    Number staticNumber = collision.GetComponent<Number>();
+                    if (staticNumber.value == number.value)
+                    {
+                        number.Delete();
+                        staticNumber.Increase(1);
+                        Spawner.emptyCells.Add(cell);
+                        EndDrag();
+                        Points.instance.Increase();
+                    }
                 }
+            } 
+            else if (collision.tag == "Recycle")
+            {
+                number.Delete();
+                Spawner.emptyCells.Add(cell);
+                EndDrag();
             }
+
         }
 
         public void EndDrag() {
             transform.localPosition = pos;
             number.isMoving = false;
         }
+
     }
 }

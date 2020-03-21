@@ -8,7 +8,7 @@ namespace CellsDragNDrop
 {
     public class Points : MonoBehaviour
     {
-        public static float value = 50;
+        public static float value = 500;
         public static Points instance;
         float multiplier = 0.5f;
         Text text;
@@ -27,7 +27,7 @@ namespace CellsDragNDrop
             UpdateText();
         }
 
-        void UpdateText()
+        public void UpdateText()
         {
             text.text = "" + value.ToString();
         }
