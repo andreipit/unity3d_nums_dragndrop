@@ -12,15 +12,12 @@ namespace CellsDragNDrop
 
         void Start()
         {
-
             for (int i = 1; i <= 100; i++)
             {
                 GameObject item = Instantiate(prefab, transform);
                 item.GetComponent<ShopItem>().id = i;
                 item.transform.Find("name").GetComponent<Text>().text = Language.words[4].value;
             }
-
         }
-
     }
 }

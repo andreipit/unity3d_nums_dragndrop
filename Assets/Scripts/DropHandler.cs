@@ -8,9 +8,9 @@ namespace CellsDragNDrop
 { 
     public class DropHandler : MonoBehaviour
     {
-        Vector3 pos;
         Number number;
         Cell cell;
+        Vector3 pos;
 
         void Start()
         {
@@ -19,7 +19,7 @@ namespace CellsDragNDrop
             cell = transform.parent.GetComponent<Cell>();
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.tag == "Number")
             {
@@ -30,7 +30,7 @@ namespace CellsDragNDrop
                     {
                         number.Delete();
                         staticNumber.Increase(1);
-                        Spawner.emptyCells.Add(cell);
+                        Spawner.instance.cellsEmpty.Add(cell);
                         EndDrag();
                         Points.instance.Increase();
                     }
@@ -39,16 +39,14 @@ namespace CellsDragNDrop
             else if (collision.tag == "Recycle")
             {
                 number.Delete();
-                Spawner.emptyCells.Add(cell);
+                Spawner.instance.cellsEmpty.Add(cell);
                 EndDrag();
             }
-
         }
 
         public void EndDrag() {
             transform.localPosition = pos;
             number.isMoving = false;
         }
-
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using CellsDragNDrop;
 
@@ -11,7 +9,6 @@ namespace CellsDragNDrop
         public Text text;
         public bool isMoving;
         public static int maxValue;
-
         public int value { get { return (text.text == "") ? 0 : int.Parse(text.text); } }
 
         void Start()

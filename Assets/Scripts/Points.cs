@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using UnityEngine;
 using CellsDragNDrop;
 
@@ -8,7 +6,7 @@ namespace CellsDragNDrop
 {
     public class Points : MonoBehaviour
     {
-        public static float value = 500;
+        public static float value = 50;
         public static Points instance;
         float multiplier = 0.5f;
         Text text;
@@ -31,6 +29,5 @@ namespace CellsDragNDrop
         {
             text.text = "" + value.ToString();
         }
-
     }
 }

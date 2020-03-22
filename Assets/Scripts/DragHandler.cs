@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using CellsDragNDrop;
 
 namespace CellsDragNDrop
@@ -23,7 +21,6 @@ namespace CellsDragNDrop
         public void InitPotenDrag()
         {
             transform.position = Input.mousePosition;
-            transform.parent.SetAsLastSibling();
             number.isMoving = true;
         }
     }

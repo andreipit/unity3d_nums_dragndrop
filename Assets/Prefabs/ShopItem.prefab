@@ -399,3 +399,5 @@ MonoBehaviour:
   id: 0
   price: 0
   purchases: 0
+  idText: {fileID: 652822927}
+  priceText: {fileID: 2377030334524229278}
